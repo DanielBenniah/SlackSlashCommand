@@ -1,4 +1,5 @@
-# SlackSlashCommand
+# Slack Slash Commands
+
 Slash Commands for Slack with local server (python, flask)
 
 ## Steps to follow
@@ -27,21 +28,29 @@ Ensure that the levels are equal or higher than the following
 > npm localtunnel version 1.9.1
 	
 ## Slash Commands
+
+Follow the link https://api.slack.com/slash-commands?#creating_commands to create slash commands
+
 ### /shorturl <Long URL>
 	Shortens a given URL
 	Example: /shorturl http://facebook.com
+	Use https://<custom_subdomain>.localtunnel.me/shorturl as the request URL
 	
 ### /definition <word>
 	Returns the definition of a word
 	Example: /definition integrate
+	Use https://<custom_subdomain>.localtunnel.me/definition as the request URL
 	
 ### /rps <rock/papers/scissors>
 	Play Rock, Papers, Scissors with the computer!
 	Example: /rps rock
+	Use https://<custom_subdomain>.localtunnel.me/rps as the request URL
 	
 ### /thumbsup
 	Provide feedback on the slash commands
 	Example: /thumbsup
+	Use https://<custom_subdomain>.localtunnel.me/thumbsup as the request URL
+	Use https://<custom_subdomain>.localtunnel.me/response as the interactive URL
 
 ## Log Messages
 
