@@ -1,6 +1,6 @@
 # Slack Slash Commands
 
-Slash Commands for Slack with local server (python, flask)
+Server in Python (Flask) that integrates with Slack API and handles four slash commands
 
 ## Steps to follow
 
