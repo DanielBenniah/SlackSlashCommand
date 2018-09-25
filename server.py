@@ -43,7 +43,7 @@ def shortenURL():
 	
 	try:
 		#Get response from Bitly API
-		access_token = "7f8ec32c79203f53dc09ffc13351aaf41bdf23b1"
+		access_token = <access_token_from_bitly>
 		response = requests.get("https://api-ssl.bitly.com/v3/shorten?access_token=" + access_token + "&longUrl=" + encodedUrl)
 
 		log_message("<shortenURL> Response from bitly api: " + str(json.loads(response.text)))
@@ -222,9 +222,12 @@ def response_from_selection():
 		log_error("<response_from_selection> Error when requesting from POST")
 		return error_message("Error when getting request from slack")
 
-	payLoad = inputDict['payload'][0]#['actions'][0]['name']
+	payLoad = inputDict['payload'][0]
 	inputValue = json.loads(payLoad)['actions'][0]['value']
 	if inputValue == "yes":
+		feedback = open("feedback.txt", "a+")
+		feedback.write("{0}: ++The user liked the Slash Commands".format(str(datetime.datetime.now())))
+		feedback.close()
 		return jsonify({
 			"attachments": [
 				{
@@ -236,6 +239,9 @@ def response_from_selection():
 			]
 			})
 	elif inputValue == "no":
+		feedback = open("feedback.txt", "a+")
+		feedback.write("{0}: --The user disliked the Slash Commands".format(str(datetime.datetime.now())))
+		feedback.close()
 		return jsonify({
 			"attachments": [
 				{
@@ -255,5 +261,4 @@ def main():
 if __name__ == '__main__':
 	 main()
 
-#bitly accesstoken = 7f8ec32c79203f53dc09ffc13351aaf41bdf23b1
 #Last editied by Daniel Benniah John
